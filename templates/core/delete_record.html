@@ -1,0 +1,20 @@
+{% extends 'partials/base.html' %}
+{% block title %}Delete "{{ record.first_name|truncatewords:2 }}"{% endblock title %}
+
+{% block content %}
+<div class="container">
+        <div class="content-section">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Delete {{ record.first_name }}</legend>
+                <h2>Are you sure you want to delete {{ record.first_name }}?</h2>
+            </fieldset>
+            <div class="form-group mt-4">
+                <a class="btn btn-outline-secondary border-info" href="{% url 'core:dashboard' %}">Cancel</a> &nbsp;
+                <button class="btn btn-outline-danger border-danger" type="submit">Yes, Delete</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

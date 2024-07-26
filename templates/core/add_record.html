@@ -1,0 +1,26 @@
+{% extends "partials/base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+
+<div class="container border p-5 form-layout">
+    <fieldset class="">
+        <legend class="text-center text-info">{{ title }}</legend>
+        <hr>
+        <br>
+        <form action="" method="POST" autocomplete="off">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <br>
+            <a class="btn btn-primary border-secondary" href="{% url 'core:dashboard' %}"><i class="fa fa-arrow-left fa-beat" aria-hidden="true"></i> &nbsp; Back</a>
+            <button type="submit" class="btn btn-secondary border-info">
+                {{ title }} &nbsp; <i class="fa fa-check fa-beat" aria-hidden="true" style="color: #000;"></i>
+            </button>
+        </form>
+        <br>
+
+    </fieldset>
+</div>
+
+{% endblock content %}

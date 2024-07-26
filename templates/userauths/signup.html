@@ -1,0 +1,32 @@
+{% extends "partials/base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}Register{% endblock %}
+
+{% block content %}
+
+<div class="container border p-5 form-layout">
+    <fieldset class="">
+        <legend class="text-center text-info">Create your account</legend>
+        <h5 class="text-center">Start managing your clients today!</h5>
+        <hr>
+        <br>
+        <form action="" method="POST" autocomplete="off">
+            {% csrf_token %}
+            {{ form|crispy }}
+            {% comment %}<!--{{ form.username|as_crispy_field }} we can add breaks and more-->{% endcomment %}
+            <br>
+            <button type="submit" class="btn btn-secondary w-100 btn-block p-2">Create account &nbsp; <i class="fa fa-user-plus fa-beat" aria-hidden="true"></i></button>
+        </form>
+
+        <br>
+
+        <div class="text-center">
+            <p>Already have an account?</p>
+            <a class="text-decoration-none text-info" href="{% url 'userauths:login' %}">Login &nbsp;<i class="fa fa-key fa-beat" aria-hidden="true"></i></a>
+        </div>
+
+        <br>
+
+    </fieldset>
+</div>
+{% endblock content %}

@@ -1,0 +1,23 @@
+{% extends 'partials/base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+<div class="container border p-5 form-layout">
+    <fieldset class="">
+        <legend class="text-center text-info">{{title}}</legend>
+        <hr>
+        <br>
+        <form action="" method="POST" autocomplete="off">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <br>
+            <button type="submit" class="btn btn-secondary w-100 btn-block p-2">{{ title }} &nbsp;<i class="fa fa-key fa-beat" aria-hidden="true"></i></button>
+        </form>
+
+        <br>
+
+    </fieldset>
+</div>
+{% endblock content %}

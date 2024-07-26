@@ -1,0 +1,67 @@
+{% extends "partials/base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}Record Detail{% endblock %}
+
+{% block content %}
+
+
+<div class="container border p-5 form-layout">
+    <p><i class="fa fa-user-circle fa-beat" aria-hidden="true" style="color: #40A2D8;"></i> &nbsp;<span style="">{{ record.last_name|upper }}</span>, {{ record.first_name }}</p>
+    <table class="table table-bordered border-primary record__detail">
+        <tbody>
+            <tr>
+                <th>ID</th>
+                <td>{{ record.id }}</td>
+            </tr>
+            <!--<tr>
+                <th>Full Name</th>
+                <td>{{ record.last_name|upper }}, {{ record.first_name }}</td>
+            </tr>-->
+            <tr>
+                <th>Email</th>
+                <td>{{ record.email }}</td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td>{{ record.phone }}</td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>{{ record.address }}</td>
+            </tr>
+            <tr>
+                <th>City</th>
+                <td>{{ record.city }}</td>
+            </tr>
+            <tr>
+                <th>State</th>
+                <td>{{ record.state }}</td>
+            </tr>
+            <tr>
+                <th>Zip Code</th>
+                <td>{{ record.zip_code }}</td>
+            </tr>
+            <tr>
+                <th>Country</th>
+                <td>{{ record.country }}</td>
+            </tr>
+            <tr>
+                <th>Date Joined</th>
+                <td>{{ record.creation_date|date:"F d, Y" }}</td>
+            </tr>
+            <tr>
+                <th>Payment Status</th>
+                <td>{{ record.payment_complete }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="text-center">
+        <a class="btn btn-secondary border" href="{% url 'core:dashboard' %}"><i class="fa fa-arrow-left fa-beat" aria-hidden="true" style="color: #F8F4EC;"></i> Back</a>&nbsp;
+        <a class="btn btn-primary border-info" href="{% url 'core:update_record' record.pk %}">Update record <i class="fa fa-pencil-square-o fa-beat" aria-hidden="true" style="color: #40A2D8;"></i></a>&nbsp;
+        <a class="btn btn-danger border-danger" href="{% url 'core:delete' record.pk %}">Delete <i class="fa fa-trash fa-beat" aria-hidden="true"></i></a>
+    </div>
+</div>
+
+
+{% endblock content %}
