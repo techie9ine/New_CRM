@@ -24,7 +24,7 @@ def signup(request):
             messages.success(request, f"username {username} created successfully")
             return redirect("userauths:login")
     context = {"form": form}
-    return render(request, "userauths/signup.html", context)
+    return render(request, "userauths/signu.html", context)
 
 
 def login_view(request):
